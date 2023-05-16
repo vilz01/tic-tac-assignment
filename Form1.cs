@@ -28,6 +28,7 @@ namespace Ristinolla
         {
             who = 'o';
             movement = 0;
+            label1.Text = "Pelaajan O vuoro";
             b1.Enabled = true; b1.Text = ""; b1.BackColor = Color.White;
             b2.Enabled = true; b2.Text = ""; b2.BackColor = Color.White;
             b3.Enabled = true; b3.Text = ""; b3.BackColor = Color.White;
@@ -49,10 +50,11 @@ namespace Ristinolla
         {
             Button bt = sender as Button;
             bt.Enabled = false;
-            bt.BackColor = Color.Orange;
             if (who == 'o')
             {
+                bt.BackColor = Color.Orange;
                 bt.Text = "o";
+                label1.Text = "Pelaajan X vuoro";
                 if((b1.Text == b2.Text && b2.Text == b3.Text && b2.Text != "") ||
                     (b4.Text == b5.Text && b5.Text == b6.Text && b5.Text != "") ||
                     (b7.Text == b8.Text && b8.Text == b9.Text && b8.Text != "") ||
@@ -64,16 +66,20 @@ namespace Ristinolla
                 {
                     MessageBox.Show(($"Voittaja on {who.ToString().ToUpper()} !!!"));
                     tableLayoutPanel1.Enabled = false;
+                    label1.Text = "Peli loppu";
                 }
                 else if(movement == 8)
                 {
                     MessageBox.Show("Tasapeli !!!");
+                    label1.Text = "Peli loppu";
                 }
                 who = 'x';
             }
             else if (who == 'x')
             {
+                bt.BackColor = Color.Green;
                 bt.Text = "x";
+                label1.Text = "Pelaajan O vuoro";
                 if ((b1.Text == b2.Text && b2.Text == b3.Text && b2.Text != "") ||
                     (b4.Text == b5.Text && b5.Text == b6.Text && b5.Text != "") ||
                     (b7.Text == b8.Text && b8.Text == b9.Text && b8.Text != "") ||
@@ -85,10 +91,12 @@ namespace Ristinolla
                 {
                     MessageBox.Show(($"Voittaja on {who.ToString().ToUpper()} !!!"));
                     tableLayoutPanel1.Enabled = false;
+                    label1.Text = "Peli loppu";
                 }
                 else if (movement == 8)
                 {
                     MessageBox.Show("Tasapeli !!!");
+                    label1.Text = "Peli loppu";
                 }
                 who = 'o';
             }
